@@ -114,26 +114,26 @@ def iniciar_sesion_y_automatizar():
             browser.close()
     
 def enviar_telegram(mensaje):
-    # Asegúrate de que el Token y el ID estén exactamente entre las comillas
-    token = "8703160868:AAF9FmSQ0VX1mflty_rjbbdAdCE0uPbDd1s"  # El que te dio BotFather
-    chat_id = "269206073"    # El número que te dio userinfobot
+    # En lugar de dejar el texto fijo, leemos las variables de entorno de la máquina virtual
+    token = os.environ.get("TELEGRAM_TOKEN")
+    chat_id = os.environ.get("TELEGRAM_CHAT_ID")
     
-    url = f"https://api.telegram.org/bot{token}/sendMessage"
+    if not token or not chat_id:
+        print("Error: No se encontraron las credenciales de Telegram en el entorno.")
+        return
+
+    url = f"https://telegram.org{token}/sendMessage"
     payload = {
         "chat_id": chat_id,
         "text": mensaje
     }
     
     try:
-        # Enviamos los datos de forma segura como un diccionario de Python
         response = requests.post(url, json=payload)
-        
-        # Verificamos si Telegram aceptó el mensaje
         if response.status_code == 200:
             print("Notificación de Telegram enviada con éxito.")
         else:
             print(f"Telegram rechazó el mensaje: {response.text}")
-            
     except Exception as e:
         print(f"Error al enviar Telegram: {e}")
 
