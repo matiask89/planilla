@@ -38,9 +38,15 @@ jobs:
         # Redirecciona la carpeta de descargas de Windows al directorio local de la máquina virtual
         sed -i 's|carpeta_descargas_windows = os.path.join(os.path.expanduser("~"), "Downloads")|carpeta_descargas_windows = os.getcwd()|g' script.py
 
-    - name: Ejecutar el script de Python
-      run: python script.py
+        # ... (todo el resto del código YAML queda exactamente igual)
 
+    - name: Ejecutar el script de Python
+      env:
+        # Mapeamos los secretos guardados en GitHub hacia las variables que leerá Python
+        TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+        TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+      run: python script.py
+      
     - name: Subir planilla PDF como artefacto descargable
       uses: actions/upload-artifact@v4
       with:
