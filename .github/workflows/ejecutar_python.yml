@@ -4,7 +4,7 @@ on:
   schedule:
     # Corre de lunes a viernes a las 16:00 UTC (13:00 hs de Argentina)
     - cron: '1 13 * * 1-5'
-    timezone: 'America/Argentina/Buenos_Aires'
+      timezone: 'America/Argentina/Buenos_Aires'
   workflow_dispatch: # Botón para ejecución manual de prueba
 
 jobs:
