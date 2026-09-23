@@ -37,7 +37,7 @@ jobs:
         sed -i 's|carpeta_descargas_windows = os.path.join(os.path.expanduser("~"), "Downloads")|carpeta_descargas_windows = os.getcwd()|g' script.py
 
     - name: Ejecutar el script de Python
-      run: python script.py
+      run: python main.py
 
     # Captura el archivo PDF generado sin importar el día de la fecha
     - name: Subir planilla PDF como artefacto descargable
