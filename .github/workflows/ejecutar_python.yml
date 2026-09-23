@@ -33,12 +33,10 @@ jobs:
     - name: Adaptar código para entorno en la nube (Linux / Headless)
       run: |
         # Cambia headless=False por headless=True para que corra en la nube sin pantalla
-        sed -i 's/headless=False/headless=True/g' script.py
+        sed -i 's/headless=False/headless=True/g' main.py
         
         # Redirecciona la carpeta de descargas de Windows al directorio local de la máquina virtual
-        sed -i 's|carpeta_descargas_windows = os.path.join(os.path.expanduser("~"), "Downloads")|carpeta_descargas_windows = os.getcwd()|g' script.py
-
-        # ... (todo el resto del código YAML queda exactamente igual)
+        sed -i 's|carpeta_descargas_windows = os.path.join(os.path.expanduser("~"), "Downloads")|carpeta_descargas_windows = os.getcwd()|g' main.py
 
     - name: Ejecutar el script de Python
       env:
