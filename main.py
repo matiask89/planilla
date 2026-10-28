@@ -42,9 +42,10 @@ def iniciar_sesion_y_automatizar():
             if elemento.count() > 0:
                 print("El elemento existe. Realizando acción click")
                 elemento.click()
-
-                   # 1. Seleccionamos las opciones en el formulario
-        
+            else:
+                print("No se encuentra el boton")
+                   
+            # 1. Seleccionamos las opciones en el formulario
             print("Eligiendo las opciones")
             page.locator('//*[@id="empleadosbundle_asistencia_organismo"]').select_option("UNIDAD DE CONTROL INTERNO - VIALIDAD")
             page.locator('//*[@id="empleadosbundle_asistencia_isEntrada"]').select_option("0")
