@@ -40,13 +40,12 @@ def iniciar_sesion_y_automatizar():
 
             # 2. Verificamos si existe en la página
             if elemento.count() > 0:
-                print("El elemento X existe. Realizando acción A...")
-                # Aquí pones el código que quieres que se ejecute si existe
+                print("El elemento existe. Realizando acción click")
                 elemento.click()
 
                    # 1. Seleccionamos las opciones en el formulario
         
-                    # 1. Seleccionamos las opciones en el formulario
+            print("Eligiendo las opciones")
             page.locator('//*[@id="empleadosbundle_asistencia_organismo"]').select_option("UNIDAD DE CONTROL INTERNO - VIALIDAD")
             page.locator('//*[@id="empleadosbundle_asistencia_isEntrada"]').select_option("0")
 
