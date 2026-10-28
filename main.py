@@ -36,7 +36,7 @@ def iniciar_sesion_y_automatizar():
             print("¡Inicio de sesión completado con éxito!")
 
            # 1. Definimos el elemento usando su XPath, ID o CSS
-            elemento = page.locator('//a[@href="/recibos/web/asistencia/"]')
+            elemento = page.locator('//a[@href="/asistencia/"]')
 
             # 2. Verificamos si existe en la página
             if elemento.count() > 0:
